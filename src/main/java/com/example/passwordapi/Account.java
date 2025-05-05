@@ -1,12 +1,22 @@
 package com.example.passwordapi;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.io.Serializable;
 
-public class Account implements Serializable {
-
+@Entity
+public class Account{
+    @Id
+    @GeneratedValue
+    private int id;
     private String accountName;
     private String userName;
     private String password;
+
+
+    public Account() {}
 
     public Account(String accountName, String userName, String password) {
         this.accountName = accountName;
@@ -22,4 +32,6 @@ public class Account implements Serializable {
     public void setUserName(String userName) {this.userName = userName;}
     public String getPassword() {return password;}
     public void setPassword(String password) { this.password = password;}
+    public int getId() { return id; }
+    public void setId(int id) {this.id = id;}
 }
